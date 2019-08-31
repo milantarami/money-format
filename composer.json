@@ -1,0 +1,14 @@
+{
+    "name": "milantarami/money-format",
+    "description": "alternative for money_format() for windows machine",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Milan Tarami",
+            "email": "44134655+milantarami@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
