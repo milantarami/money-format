@@ -10,5 +10,18 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MilanTarami\\MoneyFormat\\" : "src/"
+        }
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MilanTarami\\MoneyFormat\\NumberToWordsServiceProvider"
+            ]
+        }
+    }
 }
