@@ -4,12 +4,12 @@ alternative for money_format() for windows machine
 
 ## params
 
-<table>
+<table style="width: 100%">
     <thead>
         <tr>
              <td>Param</td>
              <td>Type</td>
-             <td>Descrptiongi</td>
+             <td>Description</td>
         </tr>
     <thead>
     <tbody>
