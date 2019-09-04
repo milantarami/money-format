@@ -2,21 +2,25 @@
 
 alternative for money_format() for windows machine
 
-## params
-
-<table style="width: 100%">
-    <thead>
-        <tr>
-             <td>Param</td>
-             <td>Type</td>
-             <td>Description</td>
-        </tr>
-    <thead>
-    <tbody>
-    <tbody>
-<table>
-## Basic Usage
+## Overview
 
 ``` bash
-    $formatted = MoneyFormat::get('123456', 'np');
+MoneyFormat::get(Input, Locale, Enable_Monetary_Symbol, Custom_Monetary_Symbol);
 ```
+
+## Usage
+
+``` bash
+$formatted = MoneyFormat::get('123456', 'np');
+// output : 1,23,456.00
+$formatted = MoneyFormat::get('123456', 'np', true);
+//output : रू 1,23,456.00
+$formatted = MoneyFormat::get('123456', 'np', true, 'NPR');
+// output : NPR 1,23,456.00
+
+$formatted = MoneyFormat::get('123456', 'us');
+// output : 123,456.00
+
+
+```
+
