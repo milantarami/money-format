@@ -6,21 +6,21 @@
     "authors": [
         {
             "name": "Milan Tarami",
-            "email": "44134655+milantarami@users.noreply.github.com"
+            "email": "milantarami.dev@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
-            "MilanTarami\\MoneyFormat\\" : "src/"
+            "MilanTarami\\MoneyFormatter\\" : "src/"
         }
     },
 
     "extra": {
         "laravel": {
             "providers": [
-                "MilanTarami\\MoneyFormat\\NumberToWordsServiceProvider"
+                "MilanTarami\\MoneyFormatter\\MoneyFormatServiceProvider"
             ]
         }
     }

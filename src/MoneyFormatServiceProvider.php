@@ -25,10 +25,11 @@ class MoneyFormatServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind('numbertowords', function() {
+        
+        $this->app->bind('moneyformat', function() {
             return new MoneyFormat();
         });
 
-        AliasLoader::getInstance()->alias('MoneyFormat', 'MilanTarami\MoneyFormatter\MoneyFormat');
+        AliasLoader::getInstance()->alias('MoneyFormat', 'MilanTarami\MoneyFormatter\Facades\MoneyFormatFacade');
     }
 }

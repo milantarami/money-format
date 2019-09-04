@@ -3,6 +3,7 @@
 namespace MilanTarami\MoneyFormatter;
 
 use Exception;
+use MilanTarami\MoneyFormatter\Formatter;
 
 class MoneyFormat
 {
@@ -12,17 +13,18 @@ class MoneyFormat
         'us' => '$',
         'in' => '₹',
     ];
-
+    
     public function get($input, $countryCode, $enableCurrencySymbol = false, $customCurrencySymbol = '')
     {
         $countryCode = trim(strtolower($countryCode));
         $currencySymbol = empty($customCurrencySymbol) ? $this->localeSymbol[$countryCode] : $customCurrencySymbol;
+        $formatter = new Formatter();
         switch (strtolower($countryCode)) {
             case 'np':
-                  $formattedInput = $this->np($input);
+                $formattedInput = $formatter->southAsianNumberFormat($input);
                 break;
             case 'us':
-            $formattedInput = $this->np($input);
+                $formattedInput = $formatter->internationalNumberFormat($input);
                 break;
             default:
                 throw new Exception('Country Code not found !');
@@ -33,26 +35,10 @@ class MoneyFormat
 
     private function processResult($formattedInput, $enableCurrencySymbol, $currencySymbol)
     {
-        if($enableCurrencySymbol) {
+        if ($enableCurrencySymbol) {
             return  $currencySymbol . ' ' . $formattedInput;
         }
         return $formattedInput;
     }
-
-
-    private function np($number)
-    {
-        $splitted_number = explode('.', $number);
-        if ($splitted_number[0] < 1000)
-            return $number;
-        else {
-            list($aboveHundreds, $hundreds) = preg_split('/(?<=.{' . (strlen($splitted_number[0]) - 3) . '})/', $splitted_number[0], 2);
-            $aboveHundreds = str_split(strrev($aboveHundreds), 2);
-            $result = strrev(join(',', $aboveHundreds)) . ',' . $hundreds;
-            $result .= !empty($splitted_number[1]) ? '.' . $splitted_number[1] : '';
-            return $result;
-        }
-    }
-
 
 }
