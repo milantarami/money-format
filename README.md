@@ -2,6 +2,14 @@
 
 alternative for money_format() for windows machine
 
+## Installation and setup
+
+You can install this package via composer using:
+
+``` bash
+composer require milantarami/money-format
+```
+
 ## Overview
 
 ``` bash
